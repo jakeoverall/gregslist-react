@@ -1,14 +1,15 @@
 import { observer } from "mobx-react";
 import { AppState } from "../AppState.js";
+import CarForm from '../components/CarForm.js';
 
 function AccountPage() {
 
   const userInfo = AppState.account || AppState.identity
 
-  if(!userInfo){
+  if (!userInfo) {
     return <h1>loading...</h1>
   }
-  
+
 
   return (
     <div className="account-page">
@@ -23,6 +24,13 @@ function AccountPage() {
           </kbd>
         </div>
       </div>
+
+    <div className="container">
+      <h2 className='my-2 mb-0'>Add a new Car Listing</h2>
+      <CarForm />
+    </div>
+
+
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './components/Navbar.js'
+import CarModal from './components/CarModal.js'
 
 export function App() {
 
@@ -16,6 +17,8 @@ export function App() {
       <footer className="bg-dark text-light text-center p-3 ">
         Made with 💖 by CodeWorks
       </footer>
+
+      <CarModal />
 
     </div>
   )

@@ -5,6 +5,8 @@ import { observer } from 'mobx-react';
 import { AppState } from '../AppState';
 import CarList from '../components/CarList';
 import Loader from '../components/Loader';
+import CarForm from '../components/CarForm';
+import { Car } from '../models/Car';
 
 function HomePage() {
 
@@ -26,11 +28,25 @@ function HomePage() {
     return <Loader />
   }
 
+  function createCar(){
+    AppState.car = Car.create()
+  }
+
   return (
     <div className="home-page container">
+
+      {/* <CarForm /> */}
+
+      <button className='btn btn-lg btn-warning my-2' data-bs-toggle="modal" data-bs-target="#carModal" onClick={createCar}>Create Car 🚗</button>
+
       <div className="row">
         <CarList cars={AppState.cars} />
       </div>
+
+
+
+
+
     </div>
   )
 }
