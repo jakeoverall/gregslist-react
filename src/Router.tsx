@@ -6,6 +6,7 @@ import ErrorPage from './pages/ErrorPage.tsx';
 import HomePage from './pages/HomePage.tsx';
 import AboutPage from './pages/AboutPage.tsx';
 import AccountPage from './pages/AccountPage.tsx';
+import CarPage from './pages/CarPage.tsx';
 
 
 export const router = createHashRouter([
@@ -18,6 +19,12 @@ export const router = createHashRouter([
         path: "",
         element: <HomePage />,
       },
+
+      {
+        path: "cars/:carId",
+        element: <CarPage />
+      },
+
       {
         path: "about",
         element: <AboutPage />,

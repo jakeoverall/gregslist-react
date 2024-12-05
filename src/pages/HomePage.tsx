@@ -4,6 +4,7 @@ import { carsService } from '../services/CarsService';
 import { observer } from 'mobx-react';
 import { AppState } from '../AppState';
 import CarList from '../components/CarList';
+import Loader from '../components/Loader';
 
 function HomePage() {
 
@@ -21,6 +22,9 @@ function HomePage() {
   }, [])
 
 
+  if (!AppState.cars.length) {
+    return <Loader />
+  }
 
   return (
     <div className="home-page">
