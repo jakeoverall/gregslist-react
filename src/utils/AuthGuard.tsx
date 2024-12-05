@@ -3,6 +3,7 @@ import { audience, clientId, domain } from "../env.js";
 import { AuthService } from "../services/AuthService.js";
 import { RouterError } from "./Errors.ts";
 import { AUTH_EVENTS } from '@bcwdev/auth0provider-client';
+import Loader from '../components/Loader.tsx';
 
 const AuthGuard = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,7 +27,7 @@ const AuthGuard = ({ children }: { children: ReactNode }) => {
   return (
     <React.Fragment>
       {
-        isLoggedIn ? children : (<div>Loading...</div>)
+        isLoggedIn ? children : (<Loader />)
       }
     </React.Fragment>
   );

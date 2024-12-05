@@ -27,8 +27,10 @@ function HomePage() {
   }
 
   return (
-    <div className="home-page">
-      <CarList cars={AppState.cars} />
+    <div className="home-page container">
+      <div className="row">
+        <CarList cars={AppState.cars} />
+      </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Pop from '../utils/Pop';
 import { carsService } from '../services/CarsService';
 import { useEffect } from 'react';
@@ -10,6 +10,7 @@ import Loader from '../components/Loader';
 function CarPage() {
 
   const { carId } = useParams()
+  const navigation = useNavigate()
 
   async function getCar() {
     try {
@@ -17,6 +18,7 @@ function CarPage() {
     }
     catch (error) {
       Pop.error("Bad Car Id 🚔");
+      navigation('/')
     }
   }
 
@@ -31,7 +33,7 @@ function CarPage() {
 
   return (
     <div className="CarPage">
-      <CarCard car={AppState.car} />
+      <CarCard car={AppState.car} showCreator={true} />
     </div>
   )
 
